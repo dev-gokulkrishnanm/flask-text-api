@@ -15,6 +15,23 @@ def deb_init():
     PRAGMA foreign_keys=ON
     """)
 
+    
+    try:
+        cur.execute("""
+            CREATE TABLE invite_links (
+    link_id TEXT PRIMARY KEY,
+    conversation_id INTEGER NOT NULL,
+    created_by INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (conversation_id) REFERENCES conversations(id),
+    FOREIGN KEY (created_by) REFERENCES users(id));
+
+    
+            """)
+    
+    except sqlite3.OperationalError as e:
+        print("SQLite error:", e)
     #TABLE FOR USERS
     try:
         cur.execute("""
