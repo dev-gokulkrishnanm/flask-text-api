@@ -218,15 +218,6 @@ curl -X POST http://127.0.0.1:5000/create-invite/11 -H "Content-Type: applicatio
 curl -X POST http://127.0.0.1:5000/invite/5LG9erTKgFGEy7jDe5m9Rw -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}"
 ```
 
-## Read Receipts (Frontend Guide)
-
-The backend records a row in `message_receipts` for every message a user reads. The frontend maps the computed `read_count` to UI ticks:
-
-| Condition | Meaning | UI Representation |
-| --- | --- | --- |
-| `read_count == 0` | Sent, but no recipients have opened it | Single Gray Tick (✓) |
-| `read_count > 0` AND `read_count < total_recipients` | At least one person saw it (group chat) | Double Gray Ticks (✓✓) |
-| `read_count == total_recipients` | Everyone in the group (or partner in DM) read it | Double Blue Ticks (✓✓) |
 
 ## Database Schema
 
