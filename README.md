@@ -91,19 +91,19 @@ All examples assume the server is running at `http://127.0.0.1:5000`.
 **Create an account**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/join -H "Content-Type: application/json" -d '{"username":"haxejustin","email":"haxejustin@gmail.com", "password":"passme12"}'
+curl -X POST http://127.0.0.1:5000/join -H "Content-Type: application/json" -d '{"username":"testuser12","email":"testuser12@email.com", "password":"passme12"}'
 ```
 
 **Verify an account**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/verify -H "Content-Type: application/json" -d '{"email":"haxejustin@gmail.com", "otp":"331642"}'
+curl -X POST http://127.0.0.1:5000/verify -H "Content-Type: application/json" -d '{"email":"testuser12@email.com", "otp":"331642"}'
 ```
 
 **Login**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/login   -H "Content-Type: application/json"   -d '{"username":"gouthami","password":"dragonlady"}'
+curl -X POST http://127.0.0.1:5000/login   -H "Content-Type: application/json"   -d '{"username":"testuser12","password":"passme12"}'
 ```
 
 **Update a user record (logged in)**
@@ -117,13 +117,13 @@ curl -X POST http://127.0.0.1:5000/update   -H "Content-Type: application/json" 
 **Request a reset OTP**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/forgot-pwd -H "Content-Type: application/json" -d '{"email":"haxejustin@gmail.com"}'
+curl -X POST http://127.0.0.1:5000/forgot-pwd -H "Content-Type: application/json" -d '{"email":"testuser12@email.com"}'
 ```
 
 **Verify reset request and set a new password**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/verify-reset -H "Content-Type: application/json" -d '{"email":"frank@email.com", "otp":"123456","nw_password":"frakpass"}'
+curl -X POST http://127.0.0.1:5000/verify-reset -H "Content-Type: application/json" -d '{"email":"testuser12@email.com", "otp":"123456","nw_password":"testpass"}'
 ```
 
 ### Direct Chats
@@ -131,7 +131,7 @@ curl -X POST http://127.0.0.1:5000/verify-reset -H "Content-Type: application/js
 **Create a chat with a username**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/chats -H "Content-Type: Application/json" -H "Authorization: Bearer ${TOKEN}" -d '{"username":"gokul"}'
+curl -X POST http://127.0.0.1:5000/chats -H "Content-Type: Application/json" -H "Authorization: Bearer ${TOKEN}" -d '{"username":"testuser"}'
 ```
 
 **Get the list of conversations**
@@ -145,7 +145,7 @@ curl -X GET http://127.0.0.1:5000/chats -H "Content-Type: Application/json" -H "
 **Send a message** (content is encrypted before storage)
 
 ```bash
-curl -X POST http://127.0.0.1:5000/message/15/gokul -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}" -d '{"message":"encrypted message"}'
+curl -X POST http://127.0.0.1:5000/message/15/testuser -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}" -d '{"message":"your message"}'
 ```
 
 **Get messages** (marks incoming messages as read and returns decrypted content)
