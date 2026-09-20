@@ -1,0 +1,6 @@
+flask
+flask_limiter
+flask_bcrypt
+cryptography
+python-dotenv
+PyJWT
